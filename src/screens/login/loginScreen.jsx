@@ -2,10 +2,12 @@ import React, { useState, useContext } from "react";
 import {
   LoginContainer,
   TitleText,
-  ContainerHeader,
+  FacebookButton,
+  GmailButton,
 } from "./components/components";
 import AuthContext from "../../contexts/auth";
 import {
+  StyledContainer,
   StyledText,
   StyledTextInputRN,
 } from "../../global/components/components";
@@ -14,7 +16,7 @@ import {
   StyledButton,
   StyleTouchable,
 } from "../../global/components/components";
-import { TerciaryColor } from "../../constants/color";
+import { PrimaryColor, TerciaryColor } from "../../constants/color";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
@@ -27,37 +29,50 @@ const LoginScreen = () => {
   };
 
   return (
-    <LoginContainer>
-      <ContainerHeader>
+    <StyledContainer bgColor={PrimaryColor}>
+      <LoginContainer>
         <TitleText>bChat</TitleText>
         <StyledText sz={15}>Entre nessa conexão</StyledText>
-        <Stack mt={75}>
+
+        <Stack fill mt={75}>
           <StyledText wt={800} sz={30}>
             Login
           </StyledText>
 
-          <Stack fill mt={30}>
+          <Stack mt={55} fill={0.6}>
             <VStack
-              spacing={15}
+              spacing={25}
               divider={true}
               dividerStyle={{ backgroundColor: "transparent" }}
             >
               <StyledTextInputRN placeHolder="Email" func={setEmail} />
               <StyledTextInputRN placeHolder="Senha" func={setPass} />
               <StyledButton text="Entrar!" />
+
+              <StyledText al="center" wt={600} sz={15} color="#ffffff89">
+                OU
+              </StyledText>
             </VStack>
-            <Stack center top={165}>
+          </Stack>
+          {/* Redes sociais */}
+          <Stack fill={0.3}>
+            <StyledContainer f={0.68} jc="space-around" fd="row">
+              <FacebookButton />
+              <GmailButton />
+            </StyledContainer>
+
+            <StyledText sz={15} al="center" mt={25}>
+              Ainda não tem login?{" "}
               <StyleTouchable>
-                <StyledText mt="16">Cadastrar-se</StyledText>
+                <StyledText sz={16} wt={600} color={TerciaryColor}>
+                  CADASTRE-SE
+                </StyledText>
               </StyleTouchable>
-              <StyleTouchable>
-                <StyledText mt="16">Esqueceu a senha?</StyledText>
-              </StyleTouchable>
-            </Stack>
+            </StyledText>
           </Stack>
         </Stack>
-      </ContainerHeader>
-    </LoginContainer>
+      </LoginContainer>
+    </StyledContainer>
   );
 };
 

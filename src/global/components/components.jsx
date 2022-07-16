@@ -6,7 +6,6 @@ import {
   View,
   Text,
   TouchableWithoutFeedback,
-  ShadowPropTypesIOS,
 } from "react-native";
 import {
   PrimaryColor,
@@ -22,7 +21,8 @@ export const StyledText = styled.Text`
   font-weight: ${(props) => (!!props.wt ? props.wt : 400)};
   opacity: ${(props) => (!!props.op ? props.op : 1)};
   margin-bottom: ${(props) => (!!props.mb ? props.mb : 0)}px;
-  margin-top: ${(props) => (!!props.mt ? props.mt : 0)};
+  margin-top: ${(props) => (!!props.mt ? props.mt : 0)}px;
+  align-self: ${(props) => (!!props.al ? props.al : "flex-start")};
 `;
 
 export const StyledTextInput = ({ bgColor, label }) => {
@@ -94,3 +94,12 @@ export const StyledButton = ({ text, action }) => {
 export const StyleTouchable = ({ children }) => {
   return <TouchableWithoutFeedback>{children}</TouchableWithoutFeedback>;
 };
+
+export const StyledContainer = styled.SafeAreaView`
+  flex: ${(props) => (!!props.f ? props.f : 1)};
+  background-color: ${(props) =>
+    !!props.bgColor ? props.bgColor : "transparent"};
+  flex-direction: ${(props) => (!!props.fd ? props.fd : "column")};
+  justify-content: ${(props) => (!!props.jc ? props.jc : "flex-start")};
+  margin-bottom: ${(props) => (!!props.mb ? props.mb : 0)};
+`;

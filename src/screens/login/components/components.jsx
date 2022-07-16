@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { LinearGradient } from "expo-linear-gradient";
 import MaskedView from "@react-native-masked-view/masked-view";
-import { Text } from "react-native";
+import { Text, View, Image, TouchableWithoutFeedback } from "react-native";
 import {
   PrimaryColor,
   GradientColor,
@@ -11,7 +11,6 @@ import {
 export const LoginContainer = styled.View`
   flex: 1;
   padding: 15px;
-  background-color: ${PrimaryColor};
 `;
 
 export const ContainerHeader = styled.View`
@@ -60,3 +59,45 @@ export const SubTitle = styled.Text`
   color: ${TextColor};
   font-size: 30px;
 `;
+
+export const FacebookButton = () => {
+  return (
+    <View
+      style={{
+        backgroundColor: "#3b5998",
+        borderRadius: 15,
+        alignItems: "center",
+        justifyContent: "center",
+        flex: 0.5,
+        maxWidth: "45%",
+      }}
+    >
+      <Image
+        source={require("../../../imgs/icons/facebook.png")}
+        style={{ width: 25, height: 25 }}
+      />
+    </View>
+  );
+};
+
+export const GmailButton = () => {
+  return (
+    <View
+      style={{
+        backgroundColor: "#e4e6eb",
+        borderRadius: 15,
+        alignItems: "center",
+        justifyContent: "center",
+        flex: 0.5,
+        maxWidth: "45%",
+      }}
+    >
+      <TouchableWithoutFeedback>
+        <Image
+          source={require("../../../imgs/icons/google.png")}
+          style={{ width: 30, height: 30 }}
+        />
+      </TouchableWithoutFeedback>
+    </View>
+  );
+};

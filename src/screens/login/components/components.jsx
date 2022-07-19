@@ -11,6 +11,7 @@ import {
 export const LoginContainer = styled.View`
   flex: 1;
   padding: 15px;
+  top: 30px;
 `;
 
 export const ContainerHeader = styled.View`
@@ -68,8 +69,9 @@ export const FacebookButton = () => {
         borderRadius: 15,
         alignItems: "center",
         justifyContent: "center",
-        flex: 0.5,
-        maxWidth: "45%",
+        flex: 1,
+        maxWidth: 150,
+        maxHeight: 59,
       }}
     >
       <Image
@@ -88,8 +90,9 @@ export const GmailButton = () => {
         borderRadius: 15,
         alignItems: "center",
         justifyContent: "center",
-        flex: 0.5,
-        maxWidth: "45%",
+        flex: 1,
+        maxWidth: 150,
+        maxHeight: 59,
       }}
     >
       <TouchableWithoutFeedback>

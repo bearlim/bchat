@@ -10,6 +10,7 @@ import {
   StyledContainer,
   StyledText,
   StyledTextInputRN,
+  StyledSafeAreaView,
 } from "../../global/components/components";
 import { Stack, VStack } from "@react-native-material/core";
 import {
@@ -25,21 +26,21 @@ const LoginScreen = () => {
   const { SignInRequest, SignOutRequest } = useContext(AuthContext);
 
   const onSubmit = () => {
-    SignInRequest();
+    console.log("teste");
   };
 
   return (
-    <StyledContainer bgColor={PrimaryColor}>
+    <StyledSafeAreaView bgColor={PrimaryColor}>
       <LoginContainer>
         <TitleText>bChat</TitleText>
         <StyledText sz={15}>Entre nessa conexão</StyledText>
 
-        <Stack fill mt={75}>
+        <StyledContainer fill mt={45}>
           <StyledText wt={800} sz={30}>
             Login
           </StyledText>
 
-          <Stack mt={55} fill={0.6}>
+          <StyledContainer mt={35} fill={0.6}>
             <VStack
               spacing={25}
               divider={true}
@@ -53,26 +54,24 @@ const LoginScreen = () => {
                 OU
               </StyledText>
             </VStack>
-          </Stack>
-          {/* Redes sociais */}
-          <Stack fill={0.3}>
-            <StyledContainer f={0.68} jc="space-around" fd="row">
+            <StyledContainer fd="row" mt={25} jc="space-around">
               <FacebookButton />
               <GmailButton />
             </StyledContainer>
-
-            <StyledText sz={15} al="center" mt={25}>
-              Ainda não tem login?{" "}
-              <StyleTouchable>
-                <StyledText sz={16} wt={600} color={TerciaryColor}>
-                  CADASTRE-SE
-                </StyledText>
-              </StyleTouchable>
-            </StyledText>
-          </Stack>
-        </Stack>
+            <StyledContainer>
+              <StyledText sz={15} al="center" mt={15}>
+                Ainda não tem login?{" "}
+                <StyleTouchable onPress={onSubmit}>
+                  <StyledText sz={16} wt={600} color={TerciaryColor}>
+                    CADASTRE-SE
+                  </StyledText>
+                </StyleTouchable>
+              </StyledText>
+            </StyledContainer>
+          </StyledContainer>
+        </StyledContainer>
       </LoginContainer>
-    </StyledContainer>
+    </StyledSafeAreaView>
   );
 };
 

@@ -91,15 +91,31 @@ export const StyledButton = ({ text, action }) => {
   );
 };
 
-export const StyleTouchable = ({ children }) => {
-  return <TouchableWithoutFeedback>{children}</TouchableWithoutFeedback>;
+export const StyleTouchable = ({ children, onPress }) => {
+  return (
+    <TouchableWithoutFeedback onPress={() => onPress()}>
+      {children}
+    </TouchableWithoutFeedback>
+  );
 };
 
-export const StyledContainer = styled.SafeAreaView`
-  flex: ${(props) => (!!props.f ? props.f : 1)};
+export const StyledSafeAreaView = styled.SafeAreaView`
+  flex: ${(props) => (!!props.fill ? (props.fill ? 1 : props.fill) : 1)};
   background-color: ${(props) =>
     !!props.bgColor ? props.bgColor : "transparent"};
   flex-direction: ${(props) => (!!props.fd ? props.fd : "column")};
   justify-content: ${(props) => (!!props.jc ? props.jc : "flex-start")};
-  margin-bottom: ${(props) => (!!props.mb ? props.mb : 0)};
+  margin-bottom: ${(props) => (!!props.mb ? props.mb : 0)}px;
+  margin-top: ${(props) => (!!props.mt ? props.mt : 0)}px;
+  top: ${(props) => (!!props.t ? props.t : 0)}px;
+`;
+
+export const StyledContainer = styled.SafeAreaView`
+  flex: ${(props) => (!!props.fill ? (props.fill ? 1 : props.fill) : 1)};
+  background-color: ${(props) =>
+    !!props.bgColor ? props.bgColor : "transparent"};
+  flex-direction: ${(props) => (!!props.fd ? props.fd : "column")};
+  justify-content: ${(props) => (!!props.jc ? props.jc : "flex-start")};
+  margin-bottom: ${(props) => (!!props.mb ? props.mb : 0)}px;
+  margin-top: ${(props) => (!!props.mt ? props.mt : 0)}px;
 `;
